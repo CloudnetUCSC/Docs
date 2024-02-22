@@ -39,7 +39,7 @@
 
 ## Network File System
 
-### Setting Up NFS Serever
+### Setting Up NFS Server
 
 - Follow below steps to setup the NFS server.
 
@@ -48,16 +48,32 @@
     apt update
     apt install nfs-kernel-server
     mkdir -p /mnt/nfs
-    chown -R nobody:nogroup /mnt/nfs_share/
-    chmod 777 /mnt/nfs_share/
+    chown -R nobody:nogroup /mnt/nfs/
+    chmod 777 /mnt/nfs/
     nano /etc/exports
     --> /mnt/nfs <start_ip_range>/24(rw,sync,no_subtree_check) | Add this line to /etc/exports
     exportfs -a
     systemctl restart nfs-kernel-server
     ufw disable 
 ```
+- Already cloudnet-s01 is configured as `NFS Server` and the NFS directory is `\mnt\nfs\`.
 
+### Setting Up NFS Client
 
+- Follow below steps to mount NFS server in client
+
+```bash
+    sudo su
+    apt update
+    apt install nfs-common
+    mkdir -p /mnt/nfs
+    ufw disable 
+    mount 10.22.196.1:/mnt/nfs/ /mnt/nfs/
+```
+
+- The NFS directory is mounted to `cloudnet-s02 - cloudnet-s05` at the startup. `Therefore no need to mount it again!!!`
+
+- `cloudnet1` server is also configured as a `NFS Server` setuped in `/var/lib/libvirt/images/` directory
 
 ## Configuring Netork in Host Machines
 
@@ -72,9 +88,3 @@
     ip route add default via 10.22.196.254 dev br0
     ```
     - This is already setuped in both host machines, if the bridge in a machine is removed accidently use the above code to set it up again.
-
-## Network File System
-
-- A distributed file system is required to facilitate Live migration, therefor by using a Network File System `/var/lib/libvirt/images/` directory is shared by Source and Destination Machine.
-
-- Run `startNFS` keyword after starting the Source Machine.
