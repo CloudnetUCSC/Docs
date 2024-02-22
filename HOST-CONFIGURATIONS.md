@@ -1,47 +1,62 @@
 # SEREVER CONFIGURATIONS
 
 ## IP Details
-- Gateway : ```10.22.196.254```
-- DNS : ```10.22.254.10```
+- Gateway : `10.22.196.254`
+- DNS : `10.22.254.10`
 - VMs : `10.22.196.6 - 10.22.196.122 & 10.22.196.126 - 10.22.196.253`
 
 ## Server Details
 - cloudnet-s01
     - Type : IBM
     - Location : NOC
-    - IP : ```10.22.196.1```
+    - IP : `10.22.196.1`
 - cloudnet-s02
     - Type : IBM
     - Location : NOC
-    - IP : ```10.22.196.2```
+    - IP : `10.22.196.2`
 - cloudnet-s03
     - Type : IBM
     - Location : NOC
-    - IP : ```10.22.196.3```
+    - IP : `10.22.196.3`
 - cloudnet-s04
     - Type : IBM
     - Location : NOC
-    - IP : ```10.22.196.4```
+    - IP : `10.22.196.4`
 - cloudnet-s05
     - Type : IBM
     - Location : NOC
-    - IP : ```10.22.196.5```
+    - IP : `10.22.196.5`
 - cloudnet1
     - Type : 
     - Location : Research Lab
-    - IP : ```10.22.196.123```
+    - IP : `10.22.196.123`
 - cloudnet2
     - Type : 
     - Location : Research Lab
-    - IP : ```10.22.196.124```
+    - IP : `10.22.196.124`
 
-`Servers cloudnet-s01 to cloudnet-s05 are physically placed bottom to top in NOC`
+`cloudnet-s01 to cloudnet-s05 servers are physically placed bottom to top in NOC`
 
 ## Network File System
 
 ### Setting Up NFS Serever
 
-- cloudnet `/var/lib/libvirt/images/` directory is shared by Source and Destination Machine.
+- Follow below steps to setup the NFS server.
+
+```bash
+    sudo su
+    apt update
+    apt install nfs-kernel-server
+    mkdir -p /mnt/nfs
+    chown -R nobody:nogroup /mnt/nfs_share/
+    chmod 777 /mnt/nfs_share/
+    nano /etc/exports
+    --> /mnt/nfs <start_ip_range>/24(rw,sync,no_subtree_check) | Add this line to /etc/exports
+    exportfs -a
+    systemctl restart nfs-kernel-server
+    ufw disable 
+```
+
 
 
 ## Configuring Netork in Host Machines
