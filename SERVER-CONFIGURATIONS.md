@@ -43,7 +43,6 @@
     - Role : Source
 
 `cloudnet-s01 to cloudnet-s05 servers are physically placed bottom to top in NOC`
-`cloudnet1 and cloudnet2 ar seperate servres`
 
 ## Network File System
 
