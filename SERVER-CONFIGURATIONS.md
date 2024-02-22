@@ -10,32 +10,40 @@
     - Type : IBM
     - Location : NOC
     - IP : `10.22.196.1`
+    - Role : NFS Server | Source or Destination
 - cloudnet-s02
     - Type : IBM
     - Location : NOC
     - IP : `10.22.196.2`
+    - Role : Source or Destination
 - cloudnet-s03
     - Type : IBM
     - Location : NOC
     - IP : `10.22.196.3`
+    - Role : Source or Destination
 - cloudnet-s04
     - Type : IBM
     - Location : NOC
     - IP : `10.22.196.4`
+    - Role : Source or Destination
 - cloudnet-s05
     - Type : IBM
     - Location : NOC
     - IP : `10.22.196.5`
+    - Role : Source or Destination
 - cloudnet1
     - Type : 
     - Location : Research Lab
     - IP : `10.22.196.123`
+    - Role : NFS Server | Destination
 - cloudnet2
     - Type : 
     - Location : Research Lab
     - IP : `10.22.196.124`
+    - Role : Source
 
 `cloudnet-s01 to cloudnet-s05 servers are physically placed bottom to top in NOC`
+`cloudnet1 and cloudnet2 ar seperate servres`
 
 ## Network File System
 
