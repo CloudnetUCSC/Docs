@@ -43,6 +43,7 @@
     - Role : Source
 
 `cloudnet-s01 to cloudnet-s05 servers are physically placed bottom to top in NOC`
+`If KVM is not supported, enter the BIOS/UEFI (press F10 during boot) and enable virtualization`
 
 ## Network File System
 
@@ -81,6 +82,7 @@
 - The NFS directory is mounted to `cloudnet-s02 - cloudnet-s05` at the startup. `Therefore no need to mount it again!!!`
 
 - `cloudnet1` server is also configured as a `NFS Server` setuped in `/var/lib/libvirt/images/` directory. It is mounted to `cloudnet2`
+- Use /mnt/oldnfs/nfs: mount -t nfs 10.22.196.150:/mnt/oldnfs/nfs /mnt/nfs
 
 ## Configuring Netork in Host Machines
 
