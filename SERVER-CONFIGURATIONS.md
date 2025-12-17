@@ -42,8 +42,8 @@
     - IP : `10.22.196.124`
     - Role : Source
 
-`cloudnet-s01 to cloudnet-s05 servers are physically placed bottom to top in NOC`
-`If KVM is not supported, enter the BIOS/UEFI (press F10 during boot) and enable virtualization`
+- `cloudnet-s01 to cloudnet-s05 servers are physically placed bottom to top in NOC`
+- `If KVM is not supported, enter the BIOS/UEFI (press F10 during boot) and enable virtualization`
 
 ## Network File System
 
