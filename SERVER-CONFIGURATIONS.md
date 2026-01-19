@@ -82,7 +82,7 @@
 - The NFS directory is mounted to `cloudnet-s02 - cloudnet-s05` at the startup. `Therefore no need to mount it again!!!`
 
 - `cloudnet1` server is also configured as a `NFS Server` setuped in `/var/lib/libvirt/images/` directory. It is mounted to `cloudnet2`
-- Use /mnt/oldnfs/nfs: mount -t nfs 10.22.196.150:/mnt/oldnfs/nfs /mnt/nfs
+- Use /mnt/oldnfs/nfs: ```mount -t nfs 10.22.196.150:/mnt/oldnfs/nfs /mnt/nfs```
 
 ## Configuring Netork in Host Machines
 
